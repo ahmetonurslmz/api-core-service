@@ -1,0 +1,25 @@
+{
+  "name": "api-core-service",
+  "version": "1.0.0",
+  "description": "Wraps axios in order to enables developers to simple and easy api service",
+  "main": "index.js",
+  "scripts": {
+    "test": ""
+  },
+  "keywords": [
+    "api",
+    "service",
+    "core",
+    "axios",
+    "wrapper"
+  ],
+  "homepage": "https://github.com/ahmetonurslmz/api-core-service.git",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ahmetonurslmz/api-core-service.git"
+  },
+  "author": "ahmetonurslmz",
+  "email": "ahmetonurslmz@gmail.com",
+  "url": "https://ahmetonursolmaz.com.tr",
+  "license": "MIT"
+}
