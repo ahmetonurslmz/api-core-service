@@ -1,3 +1,5 @@
+[![install size](https://packagephobia.com/badge?p=api-core-service)](https://packagephobia.com/result?p=api-core-service)
+[![npm version](https://badge.fury.io/js/api-core-service.svg)](https://badge.fury.io/js/api-core-service)
 
 API Core Service
 =============
