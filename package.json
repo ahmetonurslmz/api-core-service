@@ -1,7 +1,7 @@
 {
   "name": "api-core-service",
   "version": "1.0.0",
-  "description": "Wraps axios in order to enables developers to simple and easy api service",
+  "description": "Simple, flexible and easy api service that wraps axios",
   "main": "index.js",
   "scripts": {
     "test": ""
