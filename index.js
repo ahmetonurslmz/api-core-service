@@ -75,7 +75,7 @@ module.exports = class ApiCoreService {
     }
 
     getAuthorizationToken() {
-        return localStorage.getItem(this.authorizationTokenName);
+        return localStorage.getItem(process.env[this.authorizationTokenName]);
     }
 
 
