@@ -5,3 +5,4 @@ test/*
 
 .DS_STORE
 */.DS_STORE
+.idea
