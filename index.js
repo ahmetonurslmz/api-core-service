@@ -80,6 +80,7 @@ module.exports = class ApiCoreService {
 
 
     handleErrors(e) {
+        throw e;
     }
 
     async get() {
