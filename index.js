@@ -1,4 +1,4 @@
-const generateRandom = Math.random().toString(36).substr(2, 9);
+const generateRandom = () => Math.random().toString(36).substr(2, 9);
 
 const axiosApi = require('./api_types/axios');
 
@@ -50,7 +50,7 @@ module.exports = class ApiCoreService {
     async request(methodBody) {
         try {
             this.initConnection();
-            const body = generateBody();
+            const body = this.generateBody(methodBody);
             this.api = axiosApi(this.apiType);
 
             const result = await this.api(body);
@@ -75,7 +75,7 @@ module.exports = class ApiCoreService {
     }
 
     getAuthorizationToken() {
-        localStorage.getItem(this.authorizationTokenName);
+        return localStorage.getItem(this.authorizationTokenName);
     }
 
 
