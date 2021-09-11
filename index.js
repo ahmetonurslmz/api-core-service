@@ -55,7 +55,7 @@ module.exports = class ApiCoreService {
 
             const result = await this.api(body);
             this.terminateConnection();
-            return result.data;
+            return this.handleSuccessfullyResponse(result);
         } catch (e) {
             this.terminateConnection();
             this.handleErrors(e);
@@ -76,6 +76,10 @@ module.exports = class ApiCoreService {
 
     getAuthorizationToken() {
         return localStorage.getItem(process.env[this.authorizationTokenName]);
+    }
+
+    handleSuccessfullyResponse(response) {
+        return response.data;
     }
 
 
