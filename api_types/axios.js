@@ -1,5 +1,5 @@
 const axios = require('axios');
 
-module.exports = type => axios.create({
-  baseURL: process.env[type],
+module.exports = (type, defaultUrl = '') => axios.create({
+  baseURL: defaultUrl || process.env[type],
 });

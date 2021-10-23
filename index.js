@@ -15,6 +15,7 @@ module.exports = class ApiCoreService {
         this.payload = {};
         this.params = {};
         this.url = '';
+        this.defaultBaseUrl = '';
         this.isLoading = false;
         this.api = null;
     }
@@ -51,7 +52,7 @@ module.exports = class ApiCoreService {
         try {
             this.initConnection();
             const body = this.generateBody(methodBody);
-            this.api = axiosApi(this.apiType);
+            this.api = axiosApi(this.apiType, this.defaultBaseUrl);
 
             const result = await this.api(body);
             this.terminateConnection();
