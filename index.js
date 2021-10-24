@@ -16,6 +16,7 @@ module.exports = class ApiCoreService {
         this.params = {};
         this.url = '';
         this.defaultBaseUrl = '';
+        this.defaultHeaders = {};
         this.isLoading = false;
         this.api = null;
     }
@@ -26,6 +27,14 @@ module.exports = class ApiCoreService {
 
     setApiType(type) {
         this.apiType = type;
+    }
+
+    setDefaultHeaders(headers = {}) {
+        this.defaultHeaders = headers;
+    }
+
+    setDefaultBaseUrl(url = '') {
+        this.defaultBaseUrl = url;
     }
 
     setDefaultAuthorizationTokenName() {
@@ -71,6 +80,7 @@ module.exports = class ApiCoreService {
                 ...methodBody.headers,
                 Accept: 'application/json',
                 Authorization: this.getAuthorizationToken(),
+                ...this.defaultHeaders,
             }
         }
     }
