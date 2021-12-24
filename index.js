@@ -81,6 +81,7 @@ module.exports = class ApiCoreService {
                 Accept: 'application/json',
                 Authorization: this.getAuthorizationToken(),
                 ...this.defaultHeaders,
+                ...this.headerInterceptor(),
             }
         }
     }
@@ -91,6 +92,10 @@ module.exports = class ApiCoreService {
 
     handleSuccessfullyResponse(response) {
         return response.data;
+    }
+
+    headerInterceptor() {
+        return {};
     }
 
 
