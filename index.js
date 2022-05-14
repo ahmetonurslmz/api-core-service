@@ -61,8 +61,7 @@ module.exports = class ApiCoreService {
         try {
             this.initConnection();
             const body = this.generateBody(methodBody);
-            this.api = axiosApi(this.apiType, this.defaultBaseUrl);
-
+            await this.setAxiosApi();
             const result = await this.api(body);
             this.terminateConnection();
             return this.handleSuccessfullyResponse(result);
@@ -70,6 +69,10 @@ module.exports = class ApiCoreService {
             this.terminateConnection();
             this.handleErrors(e);
         }
+    }
+
+    setAxiosApi() {
+        this.api = axiosApi(this.apiType, this.defaultBaseUrl);
     }
 
     generateBody(methodBody) {
