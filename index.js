@@ -73,17 +73,26 @@ module.exports = class ApiCoreService {
     }
 
     generateBody(methodBody) {
-        return {
-            url: this.url,
+        let body = {};
+
+        body.url = this.url;
+        body = {
+            ...body,
             ...methodBody,
-            headers: {
-                ...methodBody.headers,
-                Accept: 'application/json',
-                Authorization: this.getAuthorizationToken(),
-                ...this.defaultHeaders,
-                ...this.headerInterceptor(),
-            }
-        }
+        };
+
+        body.headers = methodBody.headers ? { ...methodBody.headers } : {};
+
+        body.headers.Accept = 'application/json';
+        body.headers.Authorization = this.getAuthorizationToken();
+
+        body.headers = {
+            ...body.headers,
+            ...this.defaultHeaders,
+            ...this.headerInterceptor(),
+        };
+
+        return body;
     }
 
     getAuthorizationToken() {
