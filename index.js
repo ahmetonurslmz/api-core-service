@@ -63,11 +63,11 @@ module.exports = class ApiCoreService {
             const body = this.generateBody(methodBody);
             await this.setAxiosApi();
             const result = await this.api(body);
-            this.terminateConnection();
+            await this.terminateConnection();
             return this.handleSuccessfullyResponse(result);
         } catch (e) {
-            this.terminateConnection();
-            this.handleErrors(e);
+            await this.terminateConnection();
+            await this.handleErrors(e);
         }
     }
 
